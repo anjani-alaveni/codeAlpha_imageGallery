@@ -1,0 +1,56 @@
+* {
+ box-sizing: border-box;
+}
+
+body {
+ justify-content: center;
+ background-color: #1E1E2E;
+ margin: 0;
+ padding: 10px;
+}
+
+#imageViewer {
+ display: none;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background-color: #1E1E2E;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ gap: 20px;
+}
+
+#largeImage {
+ max-width: 90%;
+ max-height: 80%;
+ object-fit: contain;
+}
+
+#backBtn {
+ align-self: flex-start;
+ margin-left: 20px;
+ padding: 10px 20px;
+ cursor: pointer;
+ background-color: rgb(208, 228, 245);
+ color: #1E1E2E;
+ border-radius: 10px;
+}
+
+.images {
+ justify-content: center;
+ display: flex;
+ flex-wrap: wrap;
+ gap: 10px;
+}
+
+section img {
+ width: 250px;
+ height: 250px;
+ border-radius: 12px;
+ object-fit: cover;
+ cursor: pointer;
+}
+
