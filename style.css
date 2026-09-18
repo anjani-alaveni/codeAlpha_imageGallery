@@ -34,8 +34,8 @@ body {
  margin-left: 20px;
  padding: 10px 20px;
  cursor: pointer;
- background-color: rgb(208, 228, 245);
- color: #1E1E2E;
+ background-color: rgb(8, 31, 50);
+ color: #f3f3f6;
  border-radius: 10px;
 }
 
@@ -54,3 +54,19 @@ section img {
  cursor: pointer;
 }
 
+.images img:hover {
+ transform: scale(1.05);
+}
+
+.navigation {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 20px;
+}
+
+.navigation button {
+ padding: 10px 15px;
+ cursor: pointer;
+ border-radius: 10px;
+}
