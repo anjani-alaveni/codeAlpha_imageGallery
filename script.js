@@ -8,72 +8,134 @@ const backBtn = document.getElementById("backBtn");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 
-
-// Store the current image index
 let currentIndex = 0;
 
 
-// Open selected image
-function showImage(index) {
+/* =========================
+   OPEN IMAGE
+   ========================= */
 
-    currentIndex = index;
-
-    largeImage.src = images[currentIndex].src;
-
-    largeImage.alt = images[currentIndex].alt;
-
-    imageViewer.style.display = "flex";
-}
-
-
-// Click on gallery images
 images.forEach(function (image, index) {
 
     image.addEventListener("click", function () {
 
-        showImage(index);
+        currentIndex = index;
+
+        showImage();
+
+        imageViewer.style.display = "flex";
 
     });
 
 });
 
 
-// Previous button
-prevBtn.addEventListener("click", function () {
+/* =========================
+   SHOW IMAGE
+   ========================= */
 
-    currentIndex--;
+function showImage() {
 
-    if (currentIndex < 0) {
+    largeImage.src = images[currentIndex].src;
 
-        currentIndex = images.length - 1;
+    largeImage.alt = images[currentIndex].alt;
 
-    }
-
-    showImage(currentIndex);
-
-});
+}
 
 
-// Next button
+/* =========================
+   NEXT IMAGE
+   ========================= */
+
 nextBtn.addEventListener("click", function () {
 
     currentIndex++;
 
     if (currentIndex >= images.length) {
-
         currentIndex = 0;
-
     }
 
-    showImage(currentIndex);
+    showImage();
 
 });
 
 
-// Back button
+/* =========================
+   PREVIOUS IMAGE
+   ========================= */
+
+prevBtn.addEventListener("click", function () {
+
+    currentIndex--;
+
+    if (currentIndex < 0) {
+        currentIndex = images.length - 1;
+    }
+
+    showImage();
+
+});
+
+
+/* =========================
+   BACK BUTTON
+   ========================= */
+
 backBtn.addEventListener("click", function () {
 
     imageViewer.style.display = "none";
+
+});
+
+
+/* =========================
+   KEYBOARD SUPPORT
+   ========================= */
+
+document.addEventListener("keydown", function (event) {
+
+    if (imageViewer.style.display !== "flex") {
+        return;
+    }
+
+
+    /* Right arrow → next */
+
+    if (event.key === "ArrowRight") {
+
+        currentIndex++;
+
+        if (currentIndex >= images.length) {
+            currentIndex = 0;
+        }
+
+        showImage();
+
+    }
+
+
+    /* Left arrow → previous */
+
+    if (event.key === "ArrowLeft") {
+
+        currentIndex--;
+
+        if (currentIndex < 0) {
+            currentIndex = images.length - 1;
+        }
+
+        showImage();
+
+    }
+
+
+    /* Escape → close */
+
+    if (event.key === "Escape") {
+
+        imageViewer.style.display = "none";
+
+    }
 
 });
 
