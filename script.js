@@ -2,11 +2,15 @@
 const images = document.querySelectorAll(".images img");
 
 const imageViewer = document.getElementById("imageViewer");
+
 const largeImage = document.getElementById("largeImage");
 
 const backBtn = document.getElementById("backBtn");
+
 const prevBtn = document.getElementById("prevBtn");
+
 const nextBtn = document.getElementById("nextBtn");
+
 
 let currentIndex = 0;
 
@@ -47,32 +51,56 @@ function showImage() {
    NEXT IMAGE
    ========================= */
 
-nextBtn.addEventListener("click", function () {
+function nextImage() {
 
     currentIndex++;
 
     if (currentIndex >= images.length) {
+
         currentIndex = 0;
+
     }
 
     showImage();
-
-});
+}
 
 
 /* =========================
    PREVIOUS IMAGE
    ========================= */
 
-prevBtn.addEventListener("click", function () {
+function previousImage() {
 
     currentIndex--;
 
     if (currentIndex < 0) {
+
         currentIndex = images.length - 1;
+
     }
 
     showImage();
+}
+
+
+/* =========================
+   NEXT BUTTON
+   ========================= */
+
+nextBtn.addEventListener("click", function () {
+
+    nextImage();
+
+});
+
+
+/* =========================
+   PREVIOUS BUTTON
+   ========================= */
+
+prevBtn.addEventListener("click", function () {
+
+    previousImage();
 
 });
 
@@ -94,42 +122,34 @@ backBtn.addEventListener("click", function () {
 
 document.addEventListener("keydown", function (event) {
 
+    /* Do nothing if lightbox is closed */
+
     if (imageViewer.style.display !== "flex") {
+
         return;
+
     }
 
 
-    /* Right arrow → next */
+    /* Right arrow */
 
     if (event.key === "ArrowRight") {
 
-        currentIndex++;
-
-        if (currentIndex >= images.length) {
-            currentIndex = 0;
-        }
-
-        showImage();
+        nextImage();
 
     }
 
 
-    /* Left arrow → previous */
+    /* Left arrow */
 
     if (event.key === "ArrowLeft") {
 
-        currentIndex--;
-
-        if (currentIndex < 0) {
-            currentIndex = images.length - 1;
-        }
-
-        showImage();
+        previousImage();
 
     }
 
 
-    /* Escape → close */
+    /* Escape */
 
     if (event.key === "Escape") {
 
@@ -138,4 +158,3 @@ document.addEventListener("keydown", function (event) {
     }
 
 });
-
