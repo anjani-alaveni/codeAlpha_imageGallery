@@ -7,7 +7,7 @@ The project allows users to browse images in a responsive gallery and open indiv
  🚀 Live Demo
 
 GitHub Pages:
-Add your deployed GitHub Pages link here.
+https://anjani-alaveni.github.io/codeAlpha_imageGallery/
 
 📌 Features
 
