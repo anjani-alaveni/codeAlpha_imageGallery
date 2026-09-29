@@ -45,9 +45,7 @@ codeAlpha_imageGallery/
 ├── style.css
 ├── script.js
 │
-├── images/
-│   ├── beach.jpg
-│   ├── beach3.jpg
+├── images/  
 │   ├── download.jpg
 │   ├── download1.jpg
 │   ├── download2.jpg
